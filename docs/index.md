@@ -12,26 +12,26 @@ varios años luego que dejé de usarlo por problemas de rendimiento.
 Como ya tenemos el proyecto creado desde github empezamos por
 
 ```bash
-$ poetry init
+poetry init
 ```
 
 Se pueden indicar dependencias en `pyproject.toml`, añadirlas con el comando `add`.
 
 ```bash
-$ poetry add scikit-learn
+poetry add scikit-learn
 ```
 
 Para activar el entorno virtual se utiliza
 
 ```bash
-$ poetry shell
+poetry shell
 ```
 
 Para correr un script del proyecto dentro del entorno virtual, sin necesidad de
 activarlo se utiliza `run` estando en la carpeta del proyecto
 
 ```bash
-$ poetry run script.py
+poetry run script.py
 ```
 
 
@@ -61,7 +61,7 @@ uso de decoradores.
 - Supresión de advertencias y mensajes de error
 
 ```bash
-$ python click_predict_01.py -i "43,14344,0,40"
+python click_predict_01.py -i "43,14344,0,40"
 ```
 
 **Fastapi**
@@ -72,7 +72,7 @@ $ python click_predict_01.py -i "43,14344,0,40"
   - Definición del modelo de dato y concordancia con los nombres que espera el modelo.
 
 ```bash
-$ uvicorn fastapi_predict_01:app --reload
+uvicorn fastapi_predict_01:app --reload
 ```
 
 
@@ -103,5 +103,48 @@ curl -X 'POST' \
 
 
 ## Ejemplo 02
+
+Diferencia usuario IAM y usuario raíz
+
+
+Instalar AWS cli
+
+```shell
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+AWS -> Usuarios -> Agregar Usuarios -> 
+
+AmazonEC2ContainerRegistryFullAccess
+
+{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "lightsail:*"
+ ],
+ "Resource": "*"
+ }
+ ]
+}
+
+
+LightsailFullAccessPolicy
+
+Crear clave de acceso
+
+mapologo-ml01-deploy
+
+aws configure
+
+aws sts get-caller-identity 
+
+
+
+
 
 ## Ejemplo 03
